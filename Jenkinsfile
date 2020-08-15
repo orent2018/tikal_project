@@ -3,7 +3,7 @@ pipeline {
    agent any 
 
    environment {
-     version_tag= ${env.BUILD_ID}
+     version_tag= "${env.BUILD_ID}"
    }
 
    stages {
