@@ -27,8 +27,8 @@ pipeline {
               sh '''
                 echo "Publish phase"
               '''
+           }
        }
-
    }
    post {
 
