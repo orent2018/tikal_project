@@ -17,7 +17,7 @@ pipeline {
 
        stage('Run tests on container from the image created') {
             steps {
-               sh 'docker run -it pystache_alpine:${version_tag} pystache-test'
+               sh 'docker run pystache_alpine:${version_tag} pystache-test'
             }
     
 
