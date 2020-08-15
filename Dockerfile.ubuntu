@@ -1,0 +1,13 @@
+FROM ubuntu:16.04
+
+RUN apt-get update -y
+
+RUN apt-get install -y -no-install-recommends git python python-pip
+
+RUN git clone http://github.com/defunkt/pystache.git
+
+WORKDIR /pystache
+
+RUN python setup.py install
+
+CMD ["bash"]
