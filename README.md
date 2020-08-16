@@ -35,7 +35,9 @@ Tools Used
 3) After the image has passed the tests it was tagged and pushed to a public repo on dockerhub:
 
      $docker tag pystache_alpine ${USER}/repo01:pystach_a-${version_tag}
+
      $docker login --username=${USER} -p ${PASS}
+
      $docker push ${USER}/repo01:pystach_a-${version_tag}
 
 4) Notification of the Success or Failure of the pipeline were send to a dedicated slack channel 
