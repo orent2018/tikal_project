@@ -26,9 +26,9 @@ pipeline {
            steps {
              withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'USER', passwordVariable: 'PASS')]){
                    sh '''
-                   docker tag pystache_alpine repo01/pystach_a:${version_tag}
+                   docker tag pystache_alpine ${USER}/repo01:pystach_a-${version_tag}
                    docker login --username=${USER} -p ${PASS}
-                   docker push repo01/pystach_a:${version_tag}
+                   docker push ${USER}/repo01/pystach_a-${version_tag}
                    '''
              }
               sh '''
