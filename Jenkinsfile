@@ -10,14 +10,14 @@ pipeline {
 
        stage('Build docker image') {
             steps {
-               sh 'docker build -t pystache_alpine:${version_tag} .'
+               sh 'docker build -t pystache_alpine .'
             }
     
        }
 
        stage('Run tests on container from the image created') {
             steps {
-               sh 'docker run pystache_alpine:${version_tag} pystache-test'
+               sh 'docker run pystache_alpine pystache-test'
             }
     
 
@@ -25,7 +25,7 @@ pipeline {
        stage('Publish image to docker hub') {
            steps {
              withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'USER', passwordVariable: 'PASS')]){
-                   docker tag pystache_alpine:${version_tag} repo01/pystach_a:${version_tag}
+                   docker tag pystache_alpine repo01/pystach_a:${version_tag}
                    docker login --username=${USER} -p ${PASS}
                    docker push repo01/pystach_a:${version_tag}
              }
