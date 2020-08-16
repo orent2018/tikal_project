@@ -24,6 +24,9 @@ pipeline {
        }
        stage('Publish image to docker hub') {
            steps {
+             withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'USER', passwordVariable: 'PASS')]){
+               echo ${USER}+${PASS}
+             }
               sh '''
                 echo "Publish phase"
               '''
