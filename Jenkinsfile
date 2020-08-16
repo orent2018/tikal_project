@@ -25,7 +25,9 @@ pipeline {
        stage('Publish image to docker hub') {
            steps {
              withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'USER', passwordVariable: 'PASS')]){
-               echo "${USER}+${PASS}"
+                   docker tag pystache_alpine:${version_tag} repo01/pystach_a:${version_tag}
+                   docker login --username=${USER} -p ${PASS}
+                   docker push repo01/pystach_a:${version_tag}
              }
               sh '''
                 echo "Publish phase"
