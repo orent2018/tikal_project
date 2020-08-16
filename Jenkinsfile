@@ -31,9 +31,6 @@ pipeline {
                    docker push ${USER}/repo01:pystach_a-${version_tag}
                    '''
              }
-              sh '''
-                echo "Publish phase"
-              '''
            }
        }
    }
@@ -43,20 +40,12 @@ pipeline {
          sh 'echo "SUCCESS"'
          slackSend color: 'good',
                    message: "Job ${JOB_NAME} build ${BUILD_NUMBER} has completed successfully"
-/*       mail to: 'orent66@gmail.com',
-         subject: "Job '${env.JOB_NAME}' (${BUILD_NUMBER}) has completed!"
-         body: " Job ${JOB_NAME} has completed successfully"
-*/
       }
 
       failure {
          sh 'echo "FAILURE"'
          slackSend color: 'bad',
                    message: "Job ${JOB_NAME} build ${BUILD_NUMBER} has Failed!!"
-/*       mail to: 'orent66@gmail.com',
-         subject: "Job '${env.JOB_NAME}' (${BUILD_NUMBER}) has Failed"
-         body: " Job ${JOB_NAME} (${BUILD_NUMBER}) has failed!"
-*/
       }
 
    }
