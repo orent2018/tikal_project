@@ -15,6 +15,7 @@ install:
 # Running tests
 script: 
   - docker run -it pystache/alpine pystache-test
+
 after_success:
 
 after_failure:
