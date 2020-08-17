@@ -9,6 +9,7 @@ Tools Used
 ----------
 
 - A jenkins server was installed on a ubuntu instance created on GCP.
+- Docker Engine was installed on the ubuntu box and the jenkins user added to the docker group.
 - A tikal_project repo was created in github to host the pipeline and build.
 - A Webhook was created from the repo to the Jenkins server in order to trigger automatic builds on push events.
 - A public repo named repo01 has been created in dockerhub to host the published image
