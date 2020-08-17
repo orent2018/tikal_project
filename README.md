@@ -15,14 +15,23 @@ Tools Used
 - Slack was integrated with the jenkins server in order to send build notifications to a slack channel.
 - Credentials for slack and dockerhub were created in the jenkins servers to avoid plan text passwords and secrets.
 
+Trigger for pipeline
+--------------------
+ - Any push event to this repository will trigger the pipeline job to run.
+
 
 1) The code has been dockerized by cloning the pystache repo and installing pystache on the docker image.
    For the source image used in this project, 3 types were tested.  A ubuntu,python2-slim and python2-alpha.
+
    The resulting image sizes were:
+
                                ubuntu 460MB
-                               slim   260MB
+
+                               slim   260MB 
+
                                alpha   95MB
   
+
    The lightest image worked well and was chosen.  The build was performed with the following command:
 
      $docker build -t pystache_alpine .
