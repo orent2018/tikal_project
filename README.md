@@ -19,6 +19,8 @@ Trigger for pipeline
 --------------------
  - Any push event to this repository will trigger the pipeline job to run.
 
+Pipeline Steps
+--------------
 
 1) The code has been dockerized by cloning the pystache repo and installing pystache on the docker image.
    For the source image used in this project, 3 types were tested.  A ubuntu,python2-slim and python2-alpha.
@@ -53,3 +55,6 @@ Trigger for pipeline
    that was integrated with the Jenkins server.
    
    The slack channel is #jenkins-build-output in oren-inc workspace
+
+   In order to see the channel one has to be invited to the oren-inc workspace and added to the channel.
+
